@@ -82,8 +82,8 @@ class FileAdapter(BaseAdapter):
             if path_drive and not os.path.splitdrive(path):
                 path = os.sep + os.path.join(path_drive, *path_parts)
 
-            # Fix relative path for Windows
-            if os.name == 'nt' and path.startswith(os.sep):
+            # Fix relative path
+            if path.startswith(os.sep):
                 path = path.lstrip(os.sep)
 
             # Use io.open since we need to add a release_conn method, and
